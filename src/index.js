@@ -1,14 +1,12 @@
-console.log('%c HI', 'color: firebrick')
-
-const imgUrl = "https://dog.ceo/api/breeds/image/random/4";
-const breedUrl = 'https://dog.ceo/api/breeds/list'
+const imageUrl = "https://dog.ceo/api/breeds/image/random/4";
+const dogBreedUrl = 'https://dog.ceo/api/breeds/list'
 
 window.addEventListener('DOMContentLoaded', () => {
-  fetch(imgUrl).then(result => {return result.json()})
+  fetch(imageUrl).then(result => {return result.json()})
   .then(json =>{
     for(let i=0;i<json.message.length;i++){
-    let image = document.createElement("img");
-    image.setAttribute("src",json.message[i]);
+    let img = document.createElement("img");
+    img.setAttribute("src",json.message[i]);
     let imgDiv = document.querySelector("#dog-image-container"); 
     imgDiv.append(image);
 
@@ -16,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   });
 
-  fetch(breedUrl).then(result => {return result.json()})
+  fetch(dogBreedUrl).then(result => {return result.json()})
    .then(json =>{
       for(let i=0;i<json.message.length;i++){
 
